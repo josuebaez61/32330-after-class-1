@@ -1,0 +1,31 @@
+<!-- https://getbootstrap.com/docs/5.2/content/tables/ -->
+<app-spinner *ngIf="loading"></app-spinner>
+<ng-container *ngIf="!loading" >
+  <button (click)="addStudent()" class="btn btn-primary mb-4" type="button">Agregar estudiantes</button>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellido</th>
+        <th scope="col">Fecha de creación</th>
+        <th scope="col">Top 10</th>
+        <th scope="col">Eliminar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr [ngClass]="{ 'table-success': student.isTop10, 'table-danger': !student.isTop10 }" *ngFor="let student of students">
+        <th scope="row">{{ student.id }}</th>
+        <td>{{ student.firstName }}</td>
+        <td>{{ student.lastName }}</td>
+        <td>{{ student.createdAt | date }}</td>
+        <td class="clickable" (click)="student.toggleTop10()">
+          {{ student.isTop10 ? 'Si' : 'No' }}
+        </td>
+        <td>
+          <button (click)="removeStudent(student.id)" class="btn btn-sm btn-danger" type="button">X</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</ng-container>

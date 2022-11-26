@@ -1,1 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+  --sidebar-width: 200px;
+}
+
+.clickable {
+  cursor: pointer;
+}

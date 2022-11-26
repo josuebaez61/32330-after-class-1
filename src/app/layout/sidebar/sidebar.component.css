@@ -1,0 +1,8 @@
+aside {
+  height: 100vh;
+  width: var(--sidebar-width);
+  background-color: aqua;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
